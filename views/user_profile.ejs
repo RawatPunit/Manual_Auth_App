@@ -1,0 +1,31 @@
+<!-- The HTML was commented as it was giving header and footer twice  -->
+
+<!-- <html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+    </head>
+    <body>
+        <%- include('_header'); %> -->
+        <link rel="stylesheet" href="/css/user_profile.css">
+        <!-- <h1>Codiel / Profile Page</h1>          no need as it is clearly visible what this page does-->     
+        <!-- <p>Name is <%= profile.user.name %></p>
+        <p>Email is <%= profile.user.email %></p> -->
+        <img src="<%= user.avatar %>" alt="<%= user.name%>" width="100">
+
+        <% if(user.id == profile_user.id){ %>
+            <!-- Ifuser matches then show the form else show only the profile info -->
+            <form action="/user/update/<%= profile_user.id %>" enctype="multipart/form-data"   method="post">
+                <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>
+                <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" required>
+                <input type="file" name="avatar" placeholder="Profile Picture">
+                <input type="submit" value="Update">
+            </form>
+           <%}else{%> 
+               <p>Name is <%= profile.user.name %></p>
+                <p>Email is <%= profile.user.email %></p>
+        <% } %>
+        <!-- <%- include('_footer'); %>
+    </body>
+</html> -->
